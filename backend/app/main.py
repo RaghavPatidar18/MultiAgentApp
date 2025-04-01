@@ -8,7 +8,7 @@ app = FastAPI(title="LLM-Powered API")
 # CORS configuration
 origins = [
     "http://localhost:3000",  # React frontend
-    "http://localhost:8000",  # Backend itself (if needed)
+    "https://multiagentapp.onrender.com",  # Backend 
 ]
 
 app.add_middleware(
