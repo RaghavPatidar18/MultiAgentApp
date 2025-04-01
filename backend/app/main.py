@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import router
 
-# Create FastAPI app instance
+# Create FastAPI app instance  uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 app = FastAPI(title="LLM-Powered API")
 
 # CORS configuration
