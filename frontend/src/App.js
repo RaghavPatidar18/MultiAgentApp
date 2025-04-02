@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 
-const API_BASE_URL = process.env.BACKEND_URL || "https://multiagentapp.onrender.com/";
+const API_BASE_URL = process.env.BACKEND_URL || "https://multiagentapp.onrender.com";
 
 function App() {
   const [question, setQuestion] = useState("");

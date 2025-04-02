@@ -7,7 +7,7 @@ app = FastAPI(title="LLM-Powered API")
 
 # CORS configuration
 origins = [
-    "http://localhost:3000",  # React frontend
+    "https://multiagentapp.netlify.app",  # React frontend
     "https://multiagentapp.onrender.com",  # Backend 
 ]
 
