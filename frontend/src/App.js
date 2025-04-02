@@ -59,7 +59,8 @@ function App() {
         {
           headers: {
               "Content-Type": "application/json",
-          }
+          },
+          withCredentials: false,
       }
       );
       setMessage(response.data.message);
@@ -75,7 +76,8 @@ function App() {
         {
             headers: {
                 "Content-Type": "application/json",
-            }
+            },
+            withCredentials: false,
         });
       setMessage(response.data.message);
     } catch (error) {
