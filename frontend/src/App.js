@@ -19,7 +19,14 @@ function App() {
       setError("");
       setAnswer("");
 
-      const response = await axios.post(`${API_BASE_URL}/query`, { question });
+      const response = await axios.post(`${API_BASE_URL}/query`, { question },
+        {
+          headers: {
+              "Content-Type": "application/json",
+          },
+          withCredentials: false,
+        }
+      );
       setAnswer(response.data.answer.content);
     } catch (error) {
       console.error("Error fetching answer:", error);
@@ -48,7 +55,13 @@ function App() {
   // Ingest data from the provided URLs
   const handleIngestData = async () => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/ingest`, { urls });
+      const response = await axios.post(`${API_BASE_URL}/ingest`, { urls },
+        {
+          headers: {
+              "Content-Type": "application/json",
+          }
+      }
+      );
       setMessage(response.data.message);
     } catch (error) {
       setMessage("Error ingesting data.");
@@ -58,7 +71,12 @@ function App() {
   // Clear the database
   const handleClearDatabase = async () => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/clear`);
+      const response = await axios.post(`${API_BASE_URL}/clear`,{},
+        {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
       setMessage(response.data.message);
     } catch (error) {
       setMessage("Error clearing database.");
