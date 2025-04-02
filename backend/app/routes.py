@@ -16,13 +16,16 @@ class QueryRequest(BaseModel):
 async def get_answer(request: QueryRequest):
     inputs = {"question": request.question}
     final_response = None
-
+    print("request---------------->",request)
     for output in langgraph_app.stream(inputs):
         for key, value in output.items():
             final_response = value.get("generation", None)
-
+    print("final response---------------->",final_response)
+    if final_response is not None:
+        final_response = final_response.content
     response = JSONResponse(content={"answer": final_response or "No relevant answer found."})
     response.headers["Access-Control-Allow-Origin"] = "*"
+    print("response---------------->",response)
     return response
 
 @router.post("/ingest")

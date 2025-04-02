@@ -27,7 +27,7 @@ function App() {
           withCredentials: false,
         }
       );
-      setAnswer(response.data.answer.content);
+      setAnswer(response.data.answer);
     } catch (error) {
       console.error("Error fetching answer:", error);
       setError("Failed to fetch answer. Please try again.");
